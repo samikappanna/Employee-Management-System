@@ -8,7 +8,6 @@ const AdminDashboard = () => {
       <Header />
       <CreateTask />
       <AllTask />
-
     </div>
   )
 }
