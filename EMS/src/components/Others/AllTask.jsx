@@ -1,40 +1,33 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { AuthContext } from '../../context/AuthProvider';
 
 const AllTask = () => {
-  return (
-    <div className='bg-[#1c1c1c] p-5 rounded mt-5 h-48 overflow-auto'>
-        <div className='bg-red-400 py-2 px-4 flex justify-between rounded'>
-            <h2>Samik</h2>
-            <h3>Make a UI design</h3>
-            <h5>Status</h5>
-        </div>
+    const authData = useContext(AuthContext);
+    console.log(authData[0]);
+    const tasks = authData[0]; // Assuming authData[0] is the array of tasks
 
-        <div className='bg-green-400 py-2 px-4 flex justify-between rounded'>
-            <h2>Samik</h2>
-            <h3>Make a UI design</h3>
-            <h5>Status</h5>
+    return (
+        <div className='bg-[#1c1c1c] p-4 rounded mt-9  '>
+                 <div className='bg-red-600 py-2 px-4 flex justify-between rounded'>
+                    <h3 className='w-1/5'>Employee Name</h3>
+                    <h3 className='w-1/5'>New Task</h3>
+                    <h3 className='w-1/5'>Active Task</h3>
+                    <h3 className='w-1/5'>Completed</h3>
+                    <h3 className='w-1/5'>Failed</h3>
+                </div>
+            <div className='overflow-auto'>
+            {tasks.map((task, index) => (
+                <div key={task.id || index} className='border-2 border-emerald-400 py-2 px-4 flex justify-between rounded'>
+                    <h2 className='w-1/5 text-white'>{task.firstName}</h2>
+                    <h3 className='w-1/5 text-blue-600'>{task.taskCounts.newTask}</h3>
+                    <h5 className='w-1/5 text-yellow-400'>{task.taskCounts.active}</h5>
+                    <h5 className='w-1/5 text-green-600'>{task.taskCounts.completed}</h5>
+                    <h5 className='w-1/5 text-red-600'>{task.taskCounts.failed}</h5>
+                </div>
+            ))}
+            </div>
         </div>
+    );
+};
 
-        <div className='bg-blue-400 py-2 px-4 flex justify-between rounded'>
-            <h2>Samik</h2>
-            <h3>Make a UI design</h3>
-            <h5>Status</h5>
-        </div>
-
-        <div className='bg-orange-400 py-2 px-4 flex justify-between rounded'>
-            <h2>Samik</h2>
-            <h3>Make a UI design</h3>
-            <h5>Status</h5>
-        </div>
-
-        <div className='bg-purple-400 py-2 px-4 flex justify-between rounded'>
-            <h2>Samik</h2>
-            <h3>Make a UI design</h3>
-            <h5>Status</h5>
-        </div>
-        
-    </div>
-  )
-}
-
-export default AllTask
+export default AllTask;
