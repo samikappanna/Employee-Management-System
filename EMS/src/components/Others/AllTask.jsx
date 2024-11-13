@@ -3,7 +3,6 @@ import { AuthContext } from '../../context/AuthProvider';
 
 const AllTask = () => {
     const authData = useContext(AuthContext);
-    console.log(authData[0]);
     const tasks = authData[0]; // Assuming authData[0] is the array of tasks
 
     return (
