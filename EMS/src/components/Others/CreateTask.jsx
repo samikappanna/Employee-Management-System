@@ -19,7 +19,7 @@ const CreateTask = () => {
         setNewTask({ title, description, date, category, active: false, newTask: true, failed: false, completed: false })
 
         const data = userData
-
+        
         data.forEach(function (elem) {
             if (assignTo == elem.firstName) {
                 elem.tasks.push(newTask)

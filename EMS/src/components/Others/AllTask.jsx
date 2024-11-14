@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 
 const AllTask = () => {
-    const authData = useContext(AuthContext);
+    const authData = useContext(AuthContext);   
     const tasks = authData[0]; // Assuming authData[0] is the array of tasks
 
     return (
